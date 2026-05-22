@@ -22,6 +22,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @Builder
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Finding {
 
     private final String patternName;
