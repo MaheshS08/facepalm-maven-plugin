@@ -65,7 +65,7 @@ public class Finding {
      */
     @Nonnull
     public Severity getSeverity(@Nonnull final ScoringConfig config) {
-        final double score = getNumericScore();
+        final double score = getNumericScore(config);
         if (score >= config.getErrorThreshold()) {
             return Severity.ERROR;
         }
@@ -78,8 +78,8 @@ public class Finding {
     /**
      * Calculates the composite threat score using the active scoring strategy.
      */
-    public double getNumericScore() {
-        return ScoringStrategy.WEIGHTED_QUADRATIC.calculate(riskScore, confidenceScore);
+    public double getNumericScore(@Nonnull final ScoringConfig config) {
+        return config.getStrategy().calculate(riskScore, confidenceScore);
     }
 
     /**
