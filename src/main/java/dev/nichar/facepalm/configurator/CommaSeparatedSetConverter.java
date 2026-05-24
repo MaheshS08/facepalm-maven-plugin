@@ -6,7 +6,6 @@
 package dev.nichar.facepalm.configurator;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -77,6 +76,6 @@ public class CommaSeparatedSetConverter extends AbstractConfigurationConverter {
         }
 
         // Default to an empty set if no configuration is provided.
-        return new HashSet<>();
+        return new LinkedHashSet<>();
     }
 }
